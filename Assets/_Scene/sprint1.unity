@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 1608065893}
   - component: {fileID: 1608065892}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
