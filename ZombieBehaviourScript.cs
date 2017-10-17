@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ZombieBehaviourScript : MonoBehaviour {
 
-    float speed = 0.01f;
+    float zombieSpeedNormal = 0.8f;
     //transform for human which is target
     public Transform target;
 	// Use this for initialization
@@ -14,8 +14,13 @@ public class ZombieBehaviourScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        transform.LookAt(target.position);
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed);
-     
+      
+        var distance = Vector3.Distance(transform.position, target.position);
+        if(distance < 15)
+        {
+            transform.LookAt(target.position);
+            transform.position = Vector3.MoveTowards(transform.position, target.position, 1 * zombieSpeedNormal * Time.deltaTime);
+
+        }
     }
 }
