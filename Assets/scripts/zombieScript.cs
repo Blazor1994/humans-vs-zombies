@@ -2,25 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class zombieScript : MonoBehaviour {
+public class ZombieBehaviourScript : MonoBehaviour {
 
+    float zombieSpeedNormal = 1f;
 	// Use this for initialization
-
-	Transform tr_Player;
-	float f_RotSpeed = 3.0f, f_MoveSpeed = 0.5f;
-
-
 	void Start () {
-			tr_Player = GameObject.FindGameObjectWithTag("Human").transform;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-		transform.rotation = Quaternion.Slerp(transform.rotation, 
-												Quaternion.LookRotation(tr_Player.position - transform.position),
-												f_RotSpeed * Time.deltaTime);
 		
-		transform.position += transform.forward*f_MoveSpeed*Time.deltaTime;
 	}
+    //Reference: https://docs.unity3d.com/ScriptReference/GameObject.FindGameObjectsWithTag.html
+    public GameObject FindClosestEnemy()
+    {
+        GameObject[] gos;
+        gos = GameObject.FindGameObjectsWithTag("Human");
+        GameObject closest = null;
+        float distance = Mathf.Infinity;
+        Vector3 position = transform.position;
+        foreach (GameObject go in gos)
+        {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+        return closest;
+    }
+    // Update is called once per frame
+    void Update() {
+        //get humans distance from zombie
+        var distance = Vector3.Distance(transform.position, FindClosestEnemy().transform.position);
+        //if the humans distance is less than 15meters
+        if(distance < 17)
+        {
+            transform.LookAt(FindClosestEnemy().transform.position);
+            //For documentation on Time.deltaTime https://docs.unity3d.com/ScriptReference/Time-deltaTime.html
+            transform.position = Vector3.MoveTowards(transform.position, FindClosestEnemy().transform.position, 1 * zombieSpeedNormal * Time.deltaTime);
+
+        }
+    }
 }
