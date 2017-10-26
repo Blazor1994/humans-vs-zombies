@@ -8,18 +8,21 @@ public class playerTouchesTarget : MonoBehaviour {
     void Start () {
 		
 	}
-    void OnTriggerEnter(Collider collision)
-    {
+    void OnCollisionEnter(Collision collision) {
 
-        if (collision.gameObject.name == "Human")
+            if (collision.gameObject.name == "Human")
+            {
+
+                Destroy(collision.gameObject);
+            }
+        }
+        // Update is called once per frame
+        void Update()
         {
 
-            Destroy(collision.gameObject);
         }
-    }
-    // Update is called once per frame
-    void Update () {
 
     }
-   
-}
+
+
+

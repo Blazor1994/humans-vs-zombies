@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 65336462618358890}
   m_Layer: 0
   m_Name: Blue House
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -427,7 +427,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1549070312079362}
   m_LocalRotation: {x: -1.7112915e-15, y: 1, z: -0.000000021855694, w: -0.0000000754979}
-  m_LocalPosition: {x: 25.36, y: 5.18, z: 47.33}
+  m_LocalPosition: {x: 25.933235, y: 5.1777697, z: 25.647747}
   m_LocalScale: {x: 0.3816629, y: 0.3816629, z: 0.3816629}
   m_Children:
   - {fileID: 4673737481630824}
