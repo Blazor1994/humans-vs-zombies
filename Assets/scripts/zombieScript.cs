@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class zombieScript : MonoBehaviour {
+public class ZombieScript : MonoBehaviour {
 
     float zombieSpeedNormal = 1f;
 	// Use this for initialization
