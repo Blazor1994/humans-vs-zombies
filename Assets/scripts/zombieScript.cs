@@ -8,18 +8,22 @@ public class ZombieScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        //get humans distance from zombie
-        var humanDistance = Vector3.Distance(transform.position, FindClosestEnemy().transform.position);
-        //if the humans distance is less than 15meters
-        if (humanDistance < 17) {
+
+        // Get the distance between the closest Human and this Zombie.
+        float distance = Vector3.Distance(transform.position, FindClosestEnemy().transform.position);
+
+        // If the Human is less than 17 metres away from this Zombie.
+        if (distance < 17) {
+            // Turn to face the closest Human.
             transform.LookAt(FindClosestEnemy().transform.position);
-            //For documentation on Time.deltaTime https://docs.unity3d.com/ScriptReference/Time-deltaTime.html
+            // Move towards the cloeset Human
+            // Reference: https://docs.unity3d.com/ScriptReference/Time-deltaTime.html
             transform.position = Vector3.MoveTowards(transform.position, FindClosestEnemy().transform.position, 1 * speed * Time.deltaTime);
 
         }
     }
     // TODO: Move this to a seperate Utility Class.
-    //Reference: https://docs.unity3d.com/ScriptReference/GameObject.FindGameObjectsWithTag.html
+    // Reference: https://docs.unity3d.com/ScriptReference/GameObject.FindGameObjectsWithTag.html
     public GameObject FindClosestEnemy()
     {
         GameObject[] gos;

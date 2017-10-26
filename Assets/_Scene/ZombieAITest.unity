@@ -401,7 +401,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 9df6319794e9b954c914d33c9b2e6f8c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.72
+      value: -8.17
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9df6319794e9b954c914d33c9b2e6f8c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -445,7 +445,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400138, guid: 9df6319794e9b954c914d33c9b2e6f8c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -7.91
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9df6319794e9b954c914d33c9b2e6f8c, type: 3}
       propertyPath: m_TagString
@@ -454,6 +454,10 @@ Prefab:
     - target: {fileID: 100000, guid: 9df6319794e9b954c914d33c9b2e6f8c, type: 3}
       propertyPath: m_Name
       value: Army 01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 400138, guid: 9df6319794e9b954c914d33c9b2e6f8c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.89
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9df6319794e9b954c914d33c9b2e6f8c, type: 3}
