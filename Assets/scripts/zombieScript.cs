@@ -43,4 +43,8 @@ public class ZombieScript : MonoBehaviour {
         }
         return closest;
     }
+
+    private void OnTriggerEnter(Collider other) {
+        Debug.Log("Collided!");
+    }
 }
