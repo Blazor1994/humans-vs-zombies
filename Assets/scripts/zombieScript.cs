@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class ZombieScript : MonoBehaviour {
+// TODO: Change this from 'zombieScript' to 'ZombieScript'.
+public class zombieScript : MonoBehaviour {
 
     float speed = 1f;
 
@@ -44,7 +44,7 @@ public class ZombieScript : MonoBehaviour {
         return closest;
     }
 
-    private void OnTriggerEnter(Collider other) {
+    private void OnCollisionEnter(Collision collision) {
         Debug.Log("Collided!");
     }
 }

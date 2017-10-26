@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HumanScript : MonoBehaviour
+public class humanScript : MonoBehaviour
 {
     float humanSpeedNormal = 4;
     public Transform target;
