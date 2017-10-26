@@ -6,6 +6,7 @@ public class humanScript : MonoBehaviour
 {
     float humanSpeedNormal = 4;
     public Transform target;
+    public RaycastHit hit;
     // Use this for initialization
     void Start()
     {
@@ -32,20 +33,28 @@ public class humanScript : MonoBehaviour
         return closest;
     }
     void Update()
-    {   
-        //Get the zombie distance from the human
-        var zombieDistance = Vector3.Distance(transform.position, FindClosestEnemy().transform.position);
+    {
+    
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
-        //If the zombie is less than 10 meters away
-        if (zombieDistance < 15)
+        if (Physics.Raycast(transform.position, fwd, out hit, 15) && hit.transform.tag == "Zombie")
         {
-          
-            transform.LookAt(2 * transform.position - FindClosestEnemy().transform.position);
-            //For documentation on Time.deltaTime https://docs.unity3d.com/ScriptReference/Time-deltaTime.html
-            transform.position = Vector3.MoveTowards(transform.position, FindClosestEnemy().transform.position, -1 * humanSpeedNormal * Time.deltaTime);
+            Debug.Log("Enemy spotted");
+            //Get the zombie distance from the human
+            var zombieDistance = Vector3.Distance(transform.position, FindClosestEnemy().transform.position);
+            //If the zombie is less than 10 meters away
+            if (zombieDistance < 15)
+            {
+
+                transform.LookAt(2 * transform.position - FindClosestEnemy().transform.position);
+                //For documentation on Time.deltaTime https://docs.unity3d.com/ScriptReference/Time-deltaTime.html
+                transform.position = Vector3.MoveTowards(transform.position, FindClosestEnemy().transform.position, -1 * humanSpeedNormal * Time.deltaTime);
+            }
+
         }
         else
         {
+            transform.LookAt(target);
             transform.position = Vector3.MoveTowards(transform.position, target.position, 1 * humanSpeedNormal * Time.deltaTime);
         }
     }

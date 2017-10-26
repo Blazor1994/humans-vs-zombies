@@ -29,8 +29,18 @@ public class zombieScript : MonoBehaviour {
         }
         return closest;
     }
-    // Update is called once per frame
-    void Update() {
+    //Check if human has entered zombie collision
+    void OnTriggerEnter(Collider collision)
+    {
+
+        if (collision.gameObject.tag == "Human")
+        {
+
+            Destroy(collision.gameObject);
+        }
+    }
+        // Update is called once per frame
+        void Update() {
         //get humans distance from zombie
         var distance = Vector3.Distance(transform.position, FindClosestEnemy().transform.position);
         //if the humans distance is less than 15meters
