@@ -12,8 +12,11 @@ public class zombieScript : MonoBehaviour {
         // Get the distance between the closest Human and this Zombie.
         float distance = Vector3.Distance(transform.position, FindClosestEnemy().transform.position);
 
-        // If the Human is less than 17 metres away from this Zombie.
-        if (distance < 17) {
+        // If the Human is less than 17 metres away from this Zombie AND if there is NOT an object inbetween them...
+        // The 'transform.up * x' moves the origin point of the raycast to the head of the zombie. 
+        // This allows the Zombie to see the human if they are behind a low wall, but not if they are behind a full one.
+        // TODO: Fine tune the origin point of the ray cast.
+        if (distance < 17 &! Physics.Raycast(transform.position + transform.up * 2.5f, FindClosestEnemy().transform.position)) {
             // Turn to face the closest Human.
             transform.LookAt(FindClosestEnemy().transform.position);
             // Move towards the cloeset Human
@@ -43,8 +46,15 @@ public class zombieScript : MonoBehaviour {
         }
         return closest;
     }
-
+    // TODO: Make the Zombie do something on collision.
     private void OnCollisionEnter(Collision collision) {
-        Debug.Log("Collided!");
+        // If the tag of the collided object matches ''...
+        if(collision.gameObject.tag == "Human") {
+            Debug.Log("Hit a Human");
+        }
+        if(collision.gameObject.tag == "Wall") {
+            Debug.Log("Hit a Wall");
+        }
+        //Debug.Log("Collided!");
     }
 }
