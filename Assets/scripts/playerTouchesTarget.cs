@@ -8,7 +8,7 @@ public class playerTouchesTarget : MonoBehaviour {
     void Start () {
 		
 	}
-    void OnTriggerEnter(Collider collision)
+    void OnCollisionEnter(UnityEngine.Collision collision)
     {
 
         if (collision.gameObject.name == "Human")
