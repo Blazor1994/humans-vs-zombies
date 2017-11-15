@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class humanScript : MonoBehaviour
 {
     float humanSpeedNormal = 4;
+    NavMeshAgent agent;
     public Transform target;
     public RaycastHit hit;
     // Use this for initialization
     void Start()
     {
-
+        agent = GetComponent<NavMeshAgent>();
     }
     //Reference: https://docs.unity3d.com/ScriptReference/GameObject.FindGameObjectsWithTag.html
     public GameObject FindClosestEnemy()
@@ -50,12 +52,7 @@ public class humanScript : MonoBehaviour
                 //For documentation on Time.deltaTime https://docs.unity3d.com/ScriptReference/Time-deltaTime.html
                 transform.position = Vector3.MoveTowards(transform.position, FindClosestEnemy().transform.position, -1 * humanSpeedNormal * Time.deltaTime);
             }
-
-        }
-        else
-        {
-            transform.LookAt(target);
-            transform.position = Vector3.MoveTowards(transform.position, target.position, 1 * humanSpeedNormal * Time.deltaTime);
+            agent.SetDestination(target.position);
         }
     }
 }

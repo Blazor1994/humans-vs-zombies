@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 54863086000543014}
   - component: {fileID: 65619800029625700}
   - component: {fileID: 195636623023717546}
-  - component: {fileID: 114720034444537498}
+  - component: {fileID: 114440514748015144}
   m_Layer: 0
   m_Name: Human
   m_TagString: Human
@@ -718,8 +718,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1313771633983520}
-  m_LocalRotation: {x: -0, y: 0.5503819, z: -0, w: 0.8349131}
-  m_LocalPosition: {x: 55.329998, y: 0.456, z: 13.87}
+  m_LocalRotation: {x: -0, y: 0.5431641, z: -1e-45, w: 0.83962667}
+  m_LocalPosition: {x: 27.918554, y: 0.28839505, z: 13.856839}
   m_LocalScale: {x: 0.07154935, y: 0.07154935, z: 0.07154935}
   m_Children:
   - {fileID: 4592765692505306}
@@ -1448,7 +1448,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1494,8 +1494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bffcd1800d78b643a94621aaa264561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 4802626535705394, guid: 6f493bd2ce885dd42bdb7dfb4ba6e9df, type: 2}
---- !u!114 &114720034444537498
+--- !u!114 &114440514748015144
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1592,9 +1591,9 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 35
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 40
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
