@@ -39,20 +39,31 @@ public class humanScript : MonoBehaviour
     
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
-        if (Physics.Raycast(transform.position, fwd, out hit, 15) && hit.transform.tag == "Zombie")
+
+        if (distance < 10 & Physics.Raycast(transform.position + transform.up * 2.5f, fwd, out hit, 10) && hit.transform.tag == "Zombie")
         {
             Debug.Log("Enemy spotted");
             //Get the zombie distance from the human
             var zombieDistance = Vector3.Distance(transform.position, FindClosestEnemy().transform.position);
             //If the zombie is less than 10 meters away
-            if (zombieDistance < 15)
-            {
 
-                transform.LookAt(2 * transform.position - FindClosestEnemy().transform.position);
-                //For documentation on Time.deltaTime https://docs.unity3d.com/ScriptReference/Time-deltaTime.html
-                transform.position = Vector3.MoveTowards(transform.position, FindClosestEnemy().transform.position, -1 * humanSpeedNormal * Time.deltaTime);
-            }
+            //   transform.LookAt(2 * transform.position - FindClosestEnemy().transform.position);
+            //For documentation on Time.deltaTime https://docs.unity3d.com/ScriptReference/Time-deltaTime.html
+            transform.position = Vector3.MoveTowards(transform.position, FindClosestEnemy().transform.position, -1 * humanSpeedNormal * Time.deltaTime);
+
+        }
+        else if (Physics.Raycast(transform.position, fwd, out hit, 5) && hit.transform.tag != "Zombie")
+        {
+
+            transform.LookAt(2 * transform.position);
+            transform.position = Vector3.MoveTowards(transform.position, target.position, -1 * humanSpeedNormal * Time.deltaTime);
+        }
+
+        else
+        {
             agent.SetDestination(target.position);
         }
+
     }
+    
 }
