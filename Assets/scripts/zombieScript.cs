@@ -4,8 +4,7 @@ using UnityEngine;
 // TODO: Change this from 'zombieScript' to 'ZombieScript'.
 public class zombieScript : MonoBehaviour {
 
-    float speed = 1f;
-
+    float speed = 0.2f;
     // Update is called once per frame
     void Update() {
 

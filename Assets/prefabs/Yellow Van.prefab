@@ -25,8 +25,8 @@ GameObject:
   m_Name: Object341
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1047450647537728
 GameObject:
@@ -40,8 +40,8 @@ GameObject:
   m_Name: wheel_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1054638249123066
 GameObject:
@@ -57,8 +57,8 @@ GameObject:
   m_Name: Object339
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1238307054891668
 GameObject:
@@ -72,8 +72,8 @@ GameObject:
   m_Name: wheel_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1251965978462354
 GameObject:
@@ -89,8 +89,8 @@ GameObject:
   m_Name: Object333
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1333379549215552
 GameObject:
@@ -106,8 +106,8 @@ GameObject:
   m_Name: Object337
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1333552498483048
 GameObject:
@@ -123,8 +123,8 @@ GameObject:
   m_Name: Object338
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1340314837482000
 GameObject:
@@ -140,8 +140,8 @@ GameObject:
   m_Name: Box1493
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1521240235542178
 GameObject:
@@ -155,8 +155,8 @@ GameObject:
   m_Name: wheel_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1614432881205910
 GameObject:
@@ -169,12 +169,13 @@ GameObject:
   - component: {fileID: 95369621685331486}
   - component: {fileID: 65676360277090778}
   - component: {fileID: 23430465108375200}
+  - component: {fileID: 208369835055601128}
   m_Layer: 0
   m_Name: Yellow Van
   m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1684178522074514
 GameObject:
@@ -190,8 +191,8 @@ GameObject:
   m_Name: Object334
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1705195917209510
 GameObject:
@@ -207,8 +208,8 @@ GameObject:
   m_Name: Cylinder317
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1747767309770228
 GameObject:
@@ -224,8 +225,8 @@ GameObject:
   m_Name: Object335
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1779062718601174
 GameObject:
@@ -239,8 +240,8 @@ GameObject:
   m_Name: wheel_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1786339155115466
 GameObject:
@@ -256,8 +257,8 @@ GameObject:
   m_Name: Object336
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1794282563009696
 GameObject:
@@ -273,8 +274,8 @@ GameObject:
   m_Name: Object342
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1816243580545504
 GameObject:
@@ -288,8 +289,8 @@ GameObject:
   m_Name: car004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1996731328246218
 GameObject:
@@ -305,8 +306,8 @@ GameObject:
   m_Name: Object340
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4008974222147864
 Transform:
@@ -410,8 +411,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1614432881205910}
-  m_LocalRotation: {x: -0.037949614, y: 0.9238766, z: -0.004807738, w: 0.3807739}
-  m_LocalPosition: {x: 70.999344, y: 1.4727578, z: 40.70128}
+  m_LocalRotation: {x: -0, y: 0.9976003, z: -0, w: 0.069235645}
+  m_LocalPosition: {x: 57, y: 1.306, z: 34.5}
   m_LocalScale: {x: 0.31965238, y: 0.3196524, z: 0.3196524}
   m_Children:
   - {fileID: 4130453901904022}
@@ -1114,3 +1115,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!208 &208369835055601128
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1614432881205910}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5.5, y: 5.5, z: 3.25}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
