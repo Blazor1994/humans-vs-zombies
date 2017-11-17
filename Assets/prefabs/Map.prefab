@@ -56,3 +56,6 @@ MonoBehaviour:
   mapCellPrefab: {fileID: 114752107192522712, guid: 6f45868e225a2ba4f92e42b7b23d3d8e,
     type: 2}
   genarationsStepDelay: 0.05
+  size:
+    x: 10
+    z: 10

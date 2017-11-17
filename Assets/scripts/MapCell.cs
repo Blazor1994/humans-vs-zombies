@@ -6,8 +6,9 @@ using UnityEngine;
 
 
 
-public class MapCell : MonoBehaviour {
 
+public class MapCell : MonoBehaviour {
+	public IntVector2 coordinates;
 	// Use this for initialization
 	void Start () {
 		
@@ -17,4 +18,6 @@ public class MapCell : MonoBehaviour {
 	void Update () {
 		
 	}
+
+
 }

@@ -13,6 +13,25 @@ public class Map : MonoBehaviour {
 	private MapCell[,] cells;
 
 	public float genarationsStepDelay;
+
+	public IntVector2 RandomCoordinates{
+		get
+		{
+			return new IntVector2 (Random.Range(0, size.x), Random.Range(0, size.z));
+		}
+	}
+
+	public bool ContainsCoordinates(IntVector2 coordinate)
+	{
+		return coordinate.x>=0 && coordinate.x<size.x && coordinate.z>=0 && coordinate.z<size.z;
+	}
+
+	public MapCell GetCell (IntVector2 coordinates)
+	{
+		return cells[coordinates.x, coordinates.z];
+	}
+
+	public IntVector2 size; 
 	// Use this for initialization
 	void Start () {
 		
@@ -26,23 +45,46 @@ public class Map : MonoBehaviour {
 	public IEnumerator generate()
 	{
 		WaitForSeconds delay = new WaitForSeconds(genarationsStepDelay);
-		cells = new MapCell[sizeX, sizeZ];
-		for(int x = 0;x<sizeX;x++)
+		cells = new MapCell[size.x, size.z];
+		List<MapCell> activeCells = new List<MapCell>();
+		DoFirstGenerationStep(activeCells);
+		while(activeCells.Count>0)
 		{
-			for(int z = 0; z<sizeZ; z++)
-			{
-				yield return delay;
-				createCell(x,z);
-			}
+			yield return delay;
+			DoNextGenerationStep(activeCells);
 		}
 	}
 
-	public void createCell(int x, int z)
+	public MapCell createCell(IntVector2 coordinates)
 	{
 		MapCell newCell = Instantiate(mapCellPrefab) as MapCell;
-		cells[x,z] = newCell;
-		newCell.name = "Map Cell" + x + ", " + z;
+		cells[coordinates.x, coordinates.z] = newCell;
+		newCell.coordinates = coordinates;
+		newCell.name = "Map Cell" + coordinates.x + ", " + coordinates.z;
 		newCell.transform.parent = transform;
-		newCell.transform.localPosition = new Vector3(x-sizeX * 0.5f + 0.5f, 0f, z - sizeZ * 0.5f+0.5f);
+		newCell.transform.localPosition = new Vector3(coordinates.x-size.x * 0.5f + 0.5f, 0f, coordinates.z - size.z * 0.5f+0.5f);
+
+		return newCell;
+	}
+
+	public void DoFirstGenerationStep(List<MapCell> activeCells)
+	{
+		activeCells.Add(createCell(RandomCoordinates));
+	}
+
+	public void DoNextGenerationStep(List<MapCell> activeCells)
+	{
+		int currentIndex = activeCells.Count -1;
+		MapCell currentCell = activeCells[currentIndex];
+		MapDirection direction  = MapDirections.RandomValue;
+		IntVector2 coordinates = currentCell.coordinates + direction.ToIntVector2();
+		if(ContainsCoordinates(coordinates)&& GetCell(coordinates) == null)
+		{
+			activeCells.Add(createCell(coordinates));
+		}
+		else
+		{
+			activeCells.RemoveAt(currentIndex);
+		}
 	}
 }
