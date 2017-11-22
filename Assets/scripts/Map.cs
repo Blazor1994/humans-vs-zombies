@@ -6,9 +6,8 @@ using UnityEngine;
 
 public class Map : MonoBehaviour {
 
-	public int sizeX, sizeZ;
-
 	public MapCell mapCellPrefab;
+	public MapCell grassCellPrefab;
 
 	private MapCell[,] cells;
 
@@ -41,7 +40,7 @@ public class Map : MonoBehaviour {
 	void Update () {
 		
 	}
-
+/* 
 	public IEnumerator generate()
 	{
 		WaitForSeconds delay = new WaitForSeconds(genarationsStepDelay);
@@ -52,6 +51,19 @@ public class Map : MonoBehaviour {
 		{
 			yield return delay;
 			DoNextGenerationStep(activeCells);
+		}
+	}*/
+
+	public IEnumerator generate() {
+		WaitForSeconds delay = new WaitForSeconds(genarationsStepDelay);
+		cells = new MapCell[size.x, size.z];
+		IntVector2 now = RandomCoordinates;
+		int i = 0;
+		while (i < 100) {
+			if (cells[now.x, now.z] == null) { createCell(now); ++i; }
+			IntVector2 nxt = now + MapDirections.RandomValue.ToIntVector2();
+			if (ContainsCoordinates(nxt)) now = nxt;
+			yield return delay;
 		}
 	}
 
