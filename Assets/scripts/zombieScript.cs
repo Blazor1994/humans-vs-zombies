@@ -7,7 +7,7 @@ public class zombieScript : MonoBehaviour {
     float speed = 0.2f;
     // Update is called once per frame
     void Update() {
-
+    /*
         // Get the distance between the closest Human and this Zombie.
         float distance = Vector3.Distance(transform.position, FindClosestEnemy().transform.position);
       
@@ -23,7 +23,7 @@ public class zombieScript : MonoBehaviour {
             // Reference: https://docs.unity3d.com/ScriptReference/Time-deltaTime.html
             transform.position = Vector3.MoveTowards(transform.position, FindClosestEnemy().transform.position, 1 * speed * Time.deltaTime);
 
-        }
+        }*/
     }
     // TODO: Move this to a seperate Utility Class.
     // Reference: https://docs.unity3d.com/ScriptReference/GameObject.FindGameObjectsWithTag.html
