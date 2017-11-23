@@ -6,17 +6,20 @@ using UnityEngine.AI;
 public class ZombieNavMesh : MonoBehaviour {
 
     NavMeshAgent agent;
-    public Transform target;
 
     // Use this for initialization
     void Start() {
 
         agent = GetComponent<NavMeshAgent>();
-
     }
 
     // Update is called once per frame
     void Update() {
+        
+    }
+
+    public void NavigateTowardsHuman(Transform target) {
+
         // Draw a ray from this gameobject to it's target.
         // If the ray collides with an object, its details are returned.
         // Reference: https://docs.unity3d.com/ScriptReference/AI.NavMeshAgent.Raycast.html
@@ -29,6 +32,8 @@ public class ZombieNavMesh : MonoBehaviour {
             Debug.Log("Target NOT in sight.");
         }
     }
+
+
 
 
 }
