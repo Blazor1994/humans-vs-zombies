@@ -3,12 +3,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Map : MonoBehaviour {
 
 	public MapCell mapCellPrefab;
 	public MapCell grassCellPrefab;
 
+	List<MapCell> activeCells = new List<MapCell>();
+
+    [SerializeField] LayerMask navMeshLayers;
+
+    private NavMeshBuildSettings navSettings = new NavMeshBuildSettings();
+
+	NavMeshDataInstance navMeshDataInstance;
 	private MapCell[,] cells;
 
 	public float genarationsStepDelay;
@@ -33,7 +41,6 @@ public class Map : MonoBehaviour {
 	public IntVector2 size; 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -45,7 +52,7 @@ public class Map : MonoBehaviour {
 	{
 		WaitForSeconds delay = new WaitForSeconds(genarationsStepDelay);
 		cells = new MapCell[size.x, size.z];
-		List<MapCell> activeCells = new List<MapCell>();
+		
 		DoFirstGenerationStep(activeCells);
 		while(activeCells.Count>0)
 		{
@@ -57,6 +64,7 @@ public class Map : MonoBehaviour {
 	public IEnumerator generate() {
 		WaitForSeconds delay = new WaitForSeconds(genarationsStepDelay);
 		cells = new MapCell[size.x, size.z];
+		
 		IntVector2 now = RandomCoordinates;
 		int i = 0;
 		while (i < 100) {
@@ -65,12 +73,16 @@ public class Map : MonoBehaviour {
 			if (ContainsCoordinates(nxt)) now = nxt;
 			yield return delay;
 		}
+
+		generateNavMesh();
+		Debug.Log("Map Built");
 	}
 
 	public MapCell createCell(IntVector2 coordinates)
 	{
 		MapCell newCell = Instantiate(mapCellPrefab) as MapCell;
 		cells[coordinates.x, coordinates.z] = newCell;
+		activeCells.Add(newCell);
 		newCell.coordinates = coordinates;
 		newCell.name = "Map Cell" + coordinates.x + ", " + coordinates.z;
 		newCell.transform.parent = transform;
@@ -98,5 +110,19 @@ public class Map : MonoBehaviour {
 		{
 			activeCells.RemoveAt(currentIndex);
 		}
+	}
+
+	public void generateNavMesh()
+	{
+		//https://community.gamedev.tv/t/modify-navmesh-dynamically/25849/3
+		List<NavMeshBuildSource> buildSources  = new List<NavMeshBuildSource>();
+		NavMeshBuilder.CollectSources(transform, navMeshLayers, NavMeshCollectGeometry.RenderMeshes, 0, new List<NavMeshBuildMarkup>(), buildSources);
+
+		NavMeshData navData = NavMeshBuilder.BuildNavMeshData(navSettings, buildSources, new Bounds(Vector3.zero, new Vector3(10000, 10000, 10000)), Vector3.down,
+                                Quaternion.Euler(Vector3.up));
+
+		navMeshDataInstance = NavMesh.AddNavMeshData(navData);
+		Debug.Log(buildSources.Count);
+
 	}
 }

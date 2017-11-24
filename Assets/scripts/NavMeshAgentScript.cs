@@ -6,11 +6,14 @@ using UnityEngine.AI;
 public class NavMeshAgentScript : MonoBehaviour {
 
     NavMeshAgent agent;
-    public Transform target;
+
+
+
+    private Transform target;
 
 	// Use this for initialization
 	void Start () {
-
+	target = GameObject.FindGameObjectWithTag("Finish").transform;
         agent = GetComponent<NavMeshAgent>();
 		
 	}
@@ -21,4 +24,6 @@ public class NavMeshAgentScript : MonoBehaviour {
         agent.SetDestination(target.position);
 		
 	}
+
+
 }
