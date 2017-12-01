@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class humanScript : MonoBehaviour
 {
-    float humanSpeedNormal = 4;
+
+    public IntVector2 coordinates;
+    float humanSpeedNormal = 1;
     public Transform target;
     public RaycastHit hit;
+
     // Use this for initialization
     void Start()
     {
-
+         target = GameObject.FindGameObjectWithTag("Finish").transform;
     }
     //Reference: https://docs.unity3d.com/ScriptReference/GameObject.FindGameObjectsWithTag.html
     public GameObject FindClosestEnemy()
@@ -31,6 +34,11 @@ public class humanScript : MonoBehaviour
             }
         }
         return closest;
+    }
+
+    public void setNavMesh()
+    {
+        //navmeshController.setupNavMesh();
     }
     void Update()
     {

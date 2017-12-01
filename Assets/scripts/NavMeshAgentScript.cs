@@ -7,6 +7,7 @@ public class NavMeshAgentScript : MonoBehaviour {
 
     NavMeshAgent agent;
 
+	bool navMeshSet = false;
 
 
     private Transform target;
@@ -14,15 +15,26 @@ public class NavMeshAgentScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	target = GameObject.FindGameObjectWithTag("Finish").transform;
-        agent = GetComponent<NavMeshAgent>();
-		
+        
+	agent = GetComponent<NavMeshAgent>();
+	agent.Warp(gameObject.transform.position);	
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        agent.SetDestination(target.position);
+		agent.SetDestination(target.position);
+
 		
+	}
+
+	public void setupNavMesh()
+	{
+		Debug.Log("Setting up navmesh");
+		
+		navMeshSet = true;
+
+		Debug.Log("Nav mesh set up");
 	}
 
 

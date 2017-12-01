@@ -29,7 +29,7 @@ public class navMeshMap : MonoBehaviour {
                                 Quaternion.Euler(Vector3.up));
 
 		navMeshDataInstance = NavMesh.AddNavMeshData(navData);
-		Debug.Log(buildSources.Count);
-		Debug.Log("Map Built");
+		//Debug.Log(buildSources.Count);
+		//Debug.Log("Map Built");
 	}
 }

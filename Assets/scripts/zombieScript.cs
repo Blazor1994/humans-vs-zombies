@@ -6,6 +6,8 @@ public class zombieScript : MonoBehaviour {
 
     float speed = 1f;
 
+    public IntVector2 coordinates;
+
     // Update is called once per frame
     void Update() {
 
