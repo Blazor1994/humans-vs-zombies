@@ -9,6 +9,7 @@ TagManager:
   - Car
   - Wall
   - gun
+  - fuckoff
   layers:
   - Default
   - TransparentFX

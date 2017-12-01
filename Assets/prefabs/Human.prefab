@@ -204,11 +204,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4076586765517594}
   - component: {fileID: 95085898661184912}
-  - component: {fileID: 114098967865056630}
   - component: {fileID: 54863086000543014}
-  - component: {fileID: 65619800029625700}
   - component: {fileID: 195636623023717546}
-  - component: {fileID: 114440514748015144}
+  - component: {fileID: 65412658596328268}
+  - component: {fileID: 114387840266010146}
   m_Layer: 0
   m_Name: Human
   m_TagString: Human
@@ -718,14 +717,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1313771633983520}
-  m_LocalRotation: {x: -0, y: 0.5431641, z: -1e-45, w: 0.83962667}
-  m_LocalPosition: {x: 27.918554, y: 0.28839505, z: 13.856839}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 31.73, y: 0.32, z: 32.77}
   m_LocalScale: {x: 0.07154935, y: 0.07154935, z: 0.07154935}
   m_Children:
   - {fileID: 4592765692505306}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 66.786, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4077822479620758
 Transform:
   m_ObjectHideFlags: 1
@@ -1454,7 +1453,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!65 &65619800029625700
+--- !u!65 &65412658596328268
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1464,8 +1463,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 18.115498, y: 33.299515, z: 17.015978}
-  m_Center: {x: -0.21310414, y: 18.046024, z: 0.7356705}
+  m_Size: {x: 23, y: 30, z: 23}
+  m_Center: {x: 0, y: 20, z: 0}
 --- !u!95 &95085898661184912
 Animator:
   serializedVersion: 3
@@ -1483,7 +1482,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114098967865056630
+--- !u!114 &114387840266010146
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1494,17 +1493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bffcd1800d78b643a94621aaa264561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114440514748015144
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1313771633983520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c1409d6ee7c7fd4cb6e38590c2cbcef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  Zombie: {fileID: 0}
   target: {fileID: 0}
 --- !u!137 &137611594536060304
 SkinnedMeshRenderer:
@@ -1590,16 +1579,16 @@ NavMeshAgent:
   m_GameObject: {fileID: 1313771633983520}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 35
-  m_Acceleration: 8
-  avoidancePriority: 40
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_Radius: 17
+  m_Speed: 5
+  m_Acceleration: 5
+  avoidancePriority: 50
+  m_AngularSpeed: 1000
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 30
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
