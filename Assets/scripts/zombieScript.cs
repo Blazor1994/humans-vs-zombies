@@ -9,6 +9,7 @@ public class zombieScript : MonoBehaviour {
     GameObject closestEnemy;
 
     float speed = 0.2f;
+    string enemyTag = "Human";
 
     // Use this for initialization
     void Start() {
@@ -19,8 +20,9 @@ public class zombieScript : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         // Get the closest enemy, passing the method our current position.
-        closestEnemy = findClosest.FindClosestEnemy(transform.position);
+        closestEnemy = findClosest.FindClosestEnemy(transform.position, enemyTag);
         // Navigate towards the closest enemy, passing the location of the enemy.
+        // NOTE: When the current target is removed, a NullReferenceException is thrown.
         zombieNav.NavigateTowardsHuman(closestEnemy.transform);
     }
 
