@@ -41,6 +41,9 @@ public class ZombieNavMesh : MonoBehaviour {
             }
         } else {
             Debug.Log("Target NOT in sight.");
+            // Stop the Zombie
+            agent.isStopped = true;
+            agent.ResetPath();
         }
     }
 }
