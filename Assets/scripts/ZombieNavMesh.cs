@@ -9,7 +9,7 @@ public class ZombieNavMesh : MonoBehaviour {
     /// <summary>
     /// The maxium distance a Zombie can be agroed from.
     /// </summary>
-    public int chaseDistance = 0;
+    public float chaseDistance = 0;
 
     // Use this for initialization
     void Start() {
@@ -32,7 +32,7 @@ public class ZombieNavMesh : MonoBehaviour {
         if (!agent.Raycast(target.position, out hit)) {
             Debug.Log("Target IS in sight.");
             agent.SetDestination(target.position);
-            // If the target is further away than the chase distnace...
+            // If the target is further away than the chase distance...
             if (agent.remainingDistance > chaseDistance) {
                 // Stop the Zombie
                 agent.isStopped = true;
@@ -43,8 +43,4 @@ public class ZombieNavMesh : MonoBehaviour {
             Debug.Log("Target NOT in sight.");
         }
     }
-
-
-
-
 }
