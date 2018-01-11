@@ -6,6 +6,7 @@ public class zombieScript : MonoBehaviour {
 
     ZombieNavMesh zombieNav;
     FindClosestEnemyScript findClosest;
+    RandomWalk randomWalk;
     GameObject closestEnemy;
 
     float speed = 0.2f;
@@ -15,6 +16,7 @@ public class zombieScript : MonoBehaviour {
     void Start() {
         zombieNav = GetComponent<ZombieNavMesh>();
         findClosest = GetComponent<FindClosestEnemyScript>();
+        randomWalk = GetComponent<RandomWalk>();
 
     }
     // Update is called once per frame
@@ -24,6 +26,12 @@ public class zombieScript : MonoBehaviour {
         // Navigate towards the closest enemy, passing the location of the enemy.
         // NOTE: When the current target is removed, a NullReferenceException is thrown.
         zombieNav.NavigateTowardsHuman(closestEnemy.transform);
+
+        // If the Zombie is stopped...
+        if(zombieNav.agent.isStopped == true) {
+            randomWalk.Walk();
+            Debug.Log("Random Walk!");
+        }
     }
 
      //Check if human has entered zombie collision

@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class ZombieNavMesh : MonoBehaviour {
 
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
     /// <summary>
     /// The maxium distance a Zombie can be agroed from.
     /// </summary>

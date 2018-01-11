@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 114899715973882242}
   - component: {fileID: 114802105918904734}
   - component: {fileID: 114666201642180854}
+  - component: {fileID: 114471818254608064}
   m_Layer: 0
   m_Name: zombie
   m_TagString: Zombie
@@ -1371,6 +1372,18 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 1
+--- !u!114 &114471818254608064
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1406874989076682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af79918ed44a6e640866f62388b4431f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxWalkDistance: 5
 --- !u!114 &114666201642180854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1393,6 +1406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a517c7da730df4ca65b0712221b360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 0}
+  chaseDistance: 10
 --- !u!114 &114899715973882242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1413,6 +1428,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1428,6 +1444,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
