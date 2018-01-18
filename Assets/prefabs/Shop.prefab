@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65533937291733682}
   m_Layer: 0
   m_Name: Shop
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -439,8 +439,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1062611732011236}
   m_LocalRotation: {x: -0.50000024, y: 0.49999985, z: 0.4999998, w: 0.50000024}
-  m_LocalPosition: {x: 60.290154, y: 5.683488, z: 95.00325}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -76.396, y: 37.52, z: 5.475}
+  m_LocalScale: {x: 0.046910256, y: 0.046910252, z: 0.046910252}
   m_Children:
   - {fileID: 4714433829424810}
   - {fileID: 4449124907301578}

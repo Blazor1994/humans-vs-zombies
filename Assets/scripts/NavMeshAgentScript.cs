@@ -6,7 +6,11 @@ using UnityEngine.AI;
 public class NavMeshAgentScript : MonoBehaviour {
 
     NavMeshAgent agent;
-    public Transform target;
+
+	bool navMeshSet = false;
+
+
+    private Transform target;
 
 	// Use this for initialization
 	void Start () {
