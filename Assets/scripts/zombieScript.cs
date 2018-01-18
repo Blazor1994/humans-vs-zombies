@@ -39,13 +39,9 @@ public class zombieScript : MonoBehaviour {
     // TODO: Make the Zombie do something on collision.
     private void OnCollisionEnter(Collision collision) {
         // If the tag of the collided object matches ''...
-        if(collision.gameObject.tag == "Human") {
-            Destroy(collision.gameObject);
-            Debug.Log("Kill a Human");
-          
-        }
+      
         if(collision.gameObject.tag == "Wall") {
-            Debug.Log("Hit a Wall");
+          //  Debug.Log("Hit a Wall");
         }
         //Debug.Log("Collided!");
     }

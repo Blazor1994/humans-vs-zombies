@@ -9,6 +9,11 @@ TagManager:
   - Car
   - Wall
   - gun
+  - fuckoff
+  - bullet
+  - bulletfire
+  - zombie
+  - Dead Human
   layers:
   - Default
   - TransparentFX
