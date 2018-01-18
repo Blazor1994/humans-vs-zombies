@@ -53,7 +53,7 @@ public class zombieScript : MonoBehaviour {
         // If the tag of the collided object matches ''...
       
         if(collision.gameObject.tag == "Wall") {
-            Debug.Log("Hit a Wall");
+          //  Debug.Log("Hit a Wall");
         }
         //Debug.Log("Collided!");
     }
