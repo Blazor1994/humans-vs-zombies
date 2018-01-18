@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1730798237164854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 141.74779, y: 194.92712, z: -56.53361}
+  m_LocalPosition: {x: 106.22077, y: 0, z: -31.723063}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -50,6 +50,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -65,6 +66,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -93,16 +95,16 @@ MonoBehaviour:
   destination: {fileID: 1062611732011236, guid: 6f493bd2ce885dd42bdb7dfb4ba6e9df,
     type: 2}
   cellCount: 100
-  humanCount: 0
-  zombieCount: 0
+  humanCount: 1
+  zombieCount: 100
   roadObjectsLimit: 20
   houseOne: {fileID: 1549070312079362, guid: c1e026f71d64c154bac6eca41b1f141d, type: 2}
-  grassObjectsLimit: 30
+  grassObjectsLimit: 70
   treeOne: {fileID: 1899051944164910, guid: cf485aefc956689408ce329ed44f10a8, type: 2}
   navMeshLayers:
     serializedVersion: 2
     m_Bits: 4294967295
   genarationsStepDelay: 0
   size:
-    x: 100
-    z: 100
+    x: 10000
+    z: 10000

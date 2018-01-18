@@ -26,6 +26,7 @@ public class Map : MonoBehaviour {
 	public int zombieCount;
 
 	List<MapCell> activeCells = new List<MapCell>();
+	List<MapCell> activeCellsTemp = new List<MapCell>();
 	List<MapCell> grassCells = new List<MapCell>();
 	List<MapCell> grassCellsTemp = new List<MapCell>();
 
@@ -45,6 +46,7 @@ public class Map : MonoBehaviour {
 
 	NavMeshDataInstance navMeshDataInstance;
 	private MapCell[,] cells;
+	private MapCell[,] cellsBackup;
 
 	public float genarationsStepDelay;
 
@@ -81,14 +83,11 @@ public class Map : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		north = MapDirection.North.ToIntVector2();
-		south = MapDirection.South.ToIntVector2();
-		east = MapDirection.East.ToIntVector2();
-		west = MapDirection.West.ToIntVector2();
 
-		roadObjects.Add(houseOne);
 
-		grassObjects.Add(treeOne);
+		//roadObjects.Add(houseOne);
+
+		
 	}
 	
 	// Update is called once per frame
@@ -96,19 +95,35 @@ public class Map : MonoBehaviour {
 		
 	}
 
-	public IEnumerator generate() {
+	public void fillObjectArrays()
+	{
+
+		north = MapDirection.North.ToIntVector2();
+		south = MapDirection.South.ToIntVector2();
+		east = MapDirection.East.ToIntVector2();
+		west = MapDirection.West.ToIntVector2();
+
+		roadObjects.Add(houseOne);
+		grassObjects.Add(treeOne);
+	}
+
+	public void generate() {
+		
+		fillObjectArrays();
 		WaitForSeconds delay = new WaitForSeconds(genarationsStepDelay);
 		cells = new MapCell[size.x, size.z];
 		
 		IntVector2 now = RandomCoordinates;
-		//IntVector2 now = new IntVector2(0,0);
+		//IntVector2 now = new IntVector2(100,100);
 		int i = 0;
 		while (i < cellCount) {
 			if (cells[now.x, now.z] == null) { createCell(now); ++i; }
 			IntVector2 nxt = now + MapDirections.RandomValue.ToIntVector2();
 			if (ContainsCoordinates(nxt)) now = nxt;
-			yield return delay;
+			//yield return delay;
 		}
+
+
 		generateObjects("road");
 		generateNavMesh();
 		generateGrass();
@@ -181,6 +196,17 @@ public class Map : MonoBehaviour {
 		}
 
 	}
+
+	public bool validPlacement(MapCell currentCell)
+	{
+		IntVector2	northCell = currentCell.coordinates + north;
+		IntVector2	southCell = currentCell.coordinates + south;
+		IntVector2	eastCell = currentCell.coordinates + east;
+		IntVector2	westCell = currentCell.coordinates + west;
+
+		return true;
+
+	}
 	
 	public MapCell createCell(IntVector2 coordinates)
 	{
@@ -216,18 +242,25 @@ public class Map : MonoBehaviour {
 			coordinates = coords;
 			prefab = Instantiate(destination);
 			height = 0.25f;
+			cells[coords.x, coords.z] = null;
 		}
 		else if(type.Equals("roadObject"))
 		{
-			int randomIndex = Mathf.RoundToInt(Random.Range(0.0f, activeCells.Count));
+			int randomIndex = Mathf.RoundToInt(Random.Range(0.0f, activeCells.Count-1));
 			//int randomIndexObject = Mathf.RoundToInt(Random.Range(0.0f, roadObjects.Count));
 			coordinates = activeCells[randomIndex].coordinates;
-			prefab = Instantiate(roadObjects[0]);
-			height = 0.35f;
+			if(cells[coordinates.x, coordinates.z]!=null)
+			{
+				prefab = Instantiate(roadObjects[0]);
+				height = 0.35f;
+				cells[coords.x, coords.z] = null;
+			}
+
+			
 		}
 		else if(type.Equals("grassObject"))
 		{
-			int randomIndex = Mathf.RoundToInt(Random.Range(0.0f, grassCells.Count));
+			int randomIndex = Mathf.RoundToInt(Random.Range(0.0f, grassCells.Count-1));
 			//int randomIndexObject = Mathf.RoundToInt(Random.Range(0.0f, roadObjects.Count));
 			coordinates = grassCells[randomIndex].coordinates;
 			prefab = Instantiate(grassObjects[0]);
@@ -235,14 +268,15 @@ public class Map : MonoBehaviour {
 		}
 		else if(type.Equals("zombie"))
 		{
-			int randomIndex = Mathf.RoundToInt(Random.Range(0.0f, activeCells.Count));
+			int randomIndex = Mathf.RoundToInt(Random.Range(0.0f, activeCells.Count-1));
 			coordinates = activeCells[randomIndex].coordinates;
 			prefab = Instantiate(zombie);
 			height = 0.0f;
+			
 		}
 		else if(type.Equals("grass"))
 		{
-			coordinates = coords;
+			//Debug.Log("Grass Coords: X: " + coordinates.x + " Z: " + coordinates.z);
 			cell = Instantiate(grassCellPrefab) as MapCell;
 			cells[coords.x, coords.z] = cell;
 			grassCellsTemp.Add(cell);
