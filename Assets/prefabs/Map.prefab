@@ -93,9 +93,9 @@ MonoBehaviour:
   destination: {fileID: 1062611732011236, guid: 6f493bd2ce885dd42bdb7dfb4ba6e9df,
     type: 2}
   cellCount: 100
-  humanCount: 0
-  zombieCount: 0
-  roadObjectsLimit: 20
+  humanCount: 1
+  zombieCount: 1
+  roadObjectsLimit: 0
   houseOne: {fileID: 1549070312079362, guid: c1e026f71d64c154bac6eca41b1f141d, type: 2}
   grassObjectsLimit: 30
   treeOne: {fileID: 1899051944164910, guid: cf485aefc956689408ce329ed44f10a8, type: 2}
@@ -104,5 +104,5 @@ MonoBehaviour:
     m_Bits: 4294967295
   genarationsStepDelay: 0
   size:
-    x: 100
-    z: 100
+    x: 1000
+    z: 1000

@@ -1485,8 +1485,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bffcd1800d78b643a94621aaa264561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Zombie: {fileID: 0}
-  target: {fileID: 0}
+  CartoonSMG: {fileID: 0}
+  isParent: 0
+  target: {fileID: 4802626535705394, guid: 6f493bd2ce885dd42bdb7dfb4ba6e9df, type: 2}
 --- !u!137 &137611594536060304
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -1567,7 +1568,7 @@ NavMeshAgent:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1313771633983520}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 17
   m_Speed: 5

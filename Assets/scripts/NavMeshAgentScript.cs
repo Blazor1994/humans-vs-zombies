@@ -14,13 +14,19 @@ public class NavMeshAgentScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        agent = GetComponent<NavMeshAgent>();		
+        agent = GetComponent<NavMeshAgent>();
+		agent.Warp(gameObject.transform.position);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        agent.SetDestination(target.position);
+        //agent.SetDestination(target.position);
     }
+
+	public NavMeshAgent returnAgent()
+	{
+		return agent;
+	}
 
 
 }

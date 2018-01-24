@@ -16,9 +16,12 @@ public class humanScript : MonoBehaviour {
     IEnumerator wait (int time) {
         yield return new WaitForSeconds (time);
     }
+    
     void Start () {
 
         agent = GetComponent<NavMeshAgent> ();
+        agent.Warp(gameObject.transform.position);
+        
     }
     //Reference: https://docs.unity3d.com/ScriptReference/GameObject.FindGameObjectsWithTag.html
     public GameObject FindClosestEnemy () {
