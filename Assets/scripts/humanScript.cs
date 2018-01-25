@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class humanScript : MonoBehaviour {
-    public GameObject CartoonSMG;
     public bool isParent = false;
     float humanSpeedNormal = 5f;
     int humanHealth = 10;
@@ -98,7 +97,8 @@ public class humanScript : MonoBehaviour {
     }
     private void OnCollisionEnter (Collision collision) {
         // If the tag of the collided object matches ''...
-        if (collision.gameObject.tag == "gun") {
+        if (collision.gameObject.tag == "gunpickup") {
+               Debug.Log ("Human got pickup");
 			 Destroy(gameObject);
             Vector3 currentpos = transform.position;
             GameObject dHuman = Instantiate(Resources.Load("armed_guy_1")) as GameObject;
