@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 54463433167581770}
   - component: {fileID: 65987293649331342}
   m_Layer: 0
-  m_Name: DeadHuman
+  m_Name: Dead Human
   m_TagString: DeadHuman
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

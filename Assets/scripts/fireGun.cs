@@ -5,10 +5,8 @@ using UnityEngine;
 public class fireGun : MonoBehaviour {
 
     public GameObject bulletPrefab;
-    public Transform bulletSpawn;
-
+   
     public bool isChild = false;
-
 	GameObject tempBullet;
 	void Start () {
 
@@ -25,8 +23,8 @@ public class fireGun : MonoBehaviour {
         // Create the Bullet from the Bullet Prefab
         var bullet = (GameObject)Instantiate(
             bulletPrefab,
-            bulletSpawn.position,
-            bulletSpawn.rotation);
+            gameObject.transform.position,
+            gameObject.transform.rotation);
 
         // Add velocity to the bullet
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6;
@@ -36,8 +34,12 @@ public class fireGun : MonoBehaviour {
     }
         private void OnCollisionEnter (Collision collision) {
 		// If the tag of the collided object matches ''...
-		if (collision.gameObject.tag == "Human") {
-			isChild = true;
+		if (collision.gameObject.tag == "gun") {
+			 Destroy(gameObject);
+                Vector3 currentpos = transform.position;
+
+                GameObject dHuman = Instantiate(Resources.Load("armed_guy_1")) as GameObject;
+                dHuman.transform.position = currentpos;
 
 		}
 	}

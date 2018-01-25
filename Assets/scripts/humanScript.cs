@@ -7,7 +7,7 @@ public class humanScript : MonoBehaviour {
     public GameObject CartoonSMG;
     public bool isParent = false;
     float humanSpeedNormal = 5f;
-    int humanHealth = 1;
+    int humanHealth = 10;
     NavMeshAgent agent;
     public Transform target;
     // Use this for initialization
@@ -60,15 +60,16 @@ public class humanScript : MonoBehaviour {
         {
             if (hit.transform.tag == "Zombie"){
                 Debug.Log("FIRE TWO");
-                if (isParent == true)
+                if (gameObject.transform.name == "armed_guy_1"){
                 {
-                    fireGun fireGunScript = GetComponentInChildren<fireGun>();
-
-                    fireGunScript.fire();
+                    
+                    
+                    
 
                 }
             } }
         }
+    }
          
     
     void Update () {
@@ -89,24 +90,26 @@ public class humanScript : MonoBehaviour {
     IEnumerator zombieInfection (float time) {
 
         yield return new WaitForSeconds (time);
-        Vector3 humanPos = transform.position;
-        Quaternion humanRot = transform.rotation;
-        //     Destroy (this.gameObject);
+                Destroy(gameObject);
+                Vector3 currentpos = transform.position;
+                GameObject dHuman = Instantiate(Resources.Load("zombie")) as GameObject;
+                dHuman.transform.position = currentpos;
 
     }
     private void OnCollisionEnter (Collision collision) {
         // If the tag of the collided object matches ''...
         if (collision.gameObject.tag == "gun") {
-            collision.gameObject.transform.Rotate (0, 180, 0);
-            collision.gameObject.transform.parent = gameObject.transform;
-            isParent = true;
-
+			 Destroy(gameObject);
+            Vector3 currentpos = transform.position;
+            GameObject dHuman = Instantiate(Resources.Load("armed_guy_1")) as GameObject;
+            dHuman.transform.position = currentpos;
         }
         if (collision.gameObject.tag == "Wall") {
            // Debug.Log ("Hit a Wall");
         }
-        if (collision.gameObject.tag == "Shop") {
+        if (collision.gameObject.tag == "Finish") {
             Debug.Log ("Human got to Objective, destorying human");
+              Destroy(gameObject);
         }
         if (collision.gameObject.tag == "Zombie") {
             humanHealth--;
@@ -122,7 +125,7 @@ public class humanScript : MonoBehaviour {
 
             if (humanHealth < 10) {
                 if (humanHealth != 0) {
-                    StartCoroutine (zombieInfection (15f));
+                    StartCoroutine (zombieInfection (20f));
                 }
             }
         }
