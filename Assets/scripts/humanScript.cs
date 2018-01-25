@@ -21,6 +21,7 @@ public class humanScript : MonoBehaviour {
 
         agent = GetComponent<NavMeshAgent> ();
         agent.Warp(gameObject.transform.position);
+        target = GameObject.FindGameObjectWithTag("Finish").transform;
         
     }
     //Reference: https://docs.unity3d.com/ScriptReference/GameObject.FindGameObjectsWithTag.html
@@ -53,13 +54,10 @@ public class humanScript : MonoBehaviour {
             transform.position = Vector3.MoveTowards (transform.position, hit.transform.position, -1 * humanSpeedNormal * Time.deltaTime);
             //  agent.SetDestination (hit.transform.position -1);
         } else {
-            agent.SetDestination (target.position);
+            agent.SetDestination(target.position);
         }
         if (Physics.Raycast(transform.position + transform.up * 2.0f, fwd, out hit))
         {
-            Debug.DrawRay((transform.position + offset) + transform.up * 2.0f, fwd, Color.green);
-            Debug.Log(hit.transform.tag);
-            Debug.Log("FIRE ONE");
             if (hit.transform.tag == "Zombie"){
                 Debug.Log("FIRE TWO");
                 if (isParent == true)
