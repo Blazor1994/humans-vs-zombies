@@ -73,18 +73,7 @@ public class humanScript : MonoBehaviour {
     
     void Update () {
 
-        // FindClosestEnemy ().transform.position
-        //    agent.SetDestination (hit.transform.position -1);
-        /* float timeLeft = 15;
-         if (humanHealth < 10) {
-             if (humanHealth != 0) {
-                 timeLeft -= Time.deltaTime;
-                 if (timeLeft <= 15) {
-                     Debug.Log (timeLeft + "Till Human turns");
-                 }
-             }
-         }
-         */
+        
     }
     IEnumerator zombieInfection (float time) {
 
@@ -104,9 +93,6 @@ public class humanScript : MonoBehaviour {
             GameObject dHuman = Instantiate(Resources.Load("armed_guy_1")) as GameObject;
             dHuman.transform.position = currentpos;
         }
-        if (collision.gameObject.tag == "Wall") {
-           // Debug.Log ("Hit a Wall");
-        }
         if (collision.gameObject.tag == "Finish") {
             Debug.Log ("Human got to Objective, destorying human");
               Destroy(gameObject);
@@ -125,7 +111,7 @@ public class humanScript : MonoBehaviour {
 
             if (humanHealth < 10) {
                 if (humanHealth != 0) {
-                    StartCoroutine (zombieInfection (20f));
+                    StartCoroutine (zombieInfection (10f));
                 }
             }
         }
