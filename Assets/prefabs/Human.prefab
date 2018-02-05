@@ -1587,7 +1587,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bffcd1800d78b643a94621aaa264561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CartoonSMG: {fileID: 0}
   isParent: 0
   target: {fileID: 0}
 --- !u!137 &137611594536060304

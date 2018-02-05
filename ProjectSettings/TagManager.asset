@@ -16,6 +16,8 @@ TagManager:
   - Dead Human
   - map
   - rover
+  - Undefined
+  - gunpickup
   layers:
   - Default
   - TransparentFX

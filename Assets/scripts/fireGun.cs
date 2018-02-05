@@ -32,15 +32,5 @@ public class fireGun : MonoBehaviour {
         // Destroy the bullet after 2 seconds
         Destroy(bullet, 2);
     }
-        private void OnCollisionEnter (Collision collision) {
-		// If the tag of the collided object matches ''...
-		if (collision.gameObject.tag == "gun") {
-			 Destroy(gameObject);
-                Vector3 currentpos = transform.position;
-
-                GameObject dHuman = Instantiate(Resources.Load("armed_guy_1")) as GameObject;
-                dHuman.transform.position = currentpos;
-
-		}
+        
 	}
-}
