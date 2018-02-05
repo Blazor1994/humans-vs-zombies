@@ -96,10 +96,11 @@ MonoBehaviour:
   cellCount: 100
   humanCount: 5
   zombieCount: 20
+  grassWidth: 5
   roadObjectsLimit: 10
-  houseOne: {fileID: 1549070312079362, guid: c1e026f71d64c154bac6eca41b1f141d, type: 2}
-  houseTwo: {fileID: 1549070312079362, guid: c1e026f71d64c154bac6eca41b1f141d, type: 2}
-  houseThree: {fileID: 1549070312079362, guid: c1e026f71d64c154bac6eca41b1f141d, type: 2}
+  carOne: {fileID: 1130126194028852, guid: 994eb962102f4a1418941e60c2c6ba95, type: 2}
+  carTwo: {fileID: 1977031434669618, guid: c6583f55585ae194b93fc47116508162, type: 2}
+  carThree: {fileID: 1996530487038768, guid: 3798b66be4b55dd46bb2838a2e6848d8, type: 2}
   grassObjectsLimit: 30
   treeOne: {fileID: 1899051944164910, guid: cf485aefc956689408ce329ed44f10a8, type: 2}
   treeTwo: {fileID: 1895055772015970, guid: d2fe6451d4f716040900502071236d70, type: 2}

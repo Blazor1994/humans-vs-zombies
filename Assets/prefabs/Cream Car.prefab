@@ -25,8 +25,8 @@ GameObject:
   m_Name: Object329
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1086250435851778
 GameObject:
@@ -42,8 +42,8 @@ GameObject:
   m_Name: Object333
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1221710324198876
 GameObject:
@@ -59,8 +59,8 @@ GameObject:
   m_Name: Box1492
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1333387214408686
 GameObject:
@@ -76,8 +76,8 @@ GameObject:
   m_Name: Object334
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1342263031796610
 GameObject:
@@ -91,8 +91,8 @@ GameObject:
   m_Name: wheel1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1358609103435262
 GameObject:
@@ -108,8 +108,8 @@ GameObject:
   m_Name: Box1491
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1403003799789414
 GameObject:
@@ -125,8 +125,8 @@ GameObject:
   m_Name: Object338
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1408307135831520
 GameObject:
@@ -140,8 +140,8 @@ GameObject:
   m_Name: wheel4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1420562297587416
 GameObject:
@@ -157,8 +157,8 @@ GameObject:
   m_Name: Object336
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1503361945309378
 GameObject:
@@ -174,8 +174,8 @@ GameObject:
   m_Name: Cylinder316
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1599968712189728
 GameObject:
@@ -191,8 +191,8 @@ GameObject:
   m_Name: Object330
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1633807582099876
 GameObject:
@@ -208,8 +208,8 @@ GameObject:
   m_Name: Object332
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1642707364831916
 GameObject:
@@ -225,8 +225,8 @@ GameObject:
   m_Name: Object331
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1667355566204332
 GameObject:
@@ -240,8 +240,8 @@ GameObject:
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1690150198803380
 GameObject:
@@ -255,8 +255,8 @@ GameObject:
   m_Name: wheel3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1735253832866898
 GameObject:
@@ -272,8 +272,8 @@ GameObject:
   m_Name: Object337
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1780978530925456
 GameObject:
@@ -287,8 +287,8 @@ GameObject:
   m_Name: wheel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1811972489580800
 GameObject:
@@ -304,8 +304,8 @@ GameObject:
   m_Name: Object335
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1996530487038768
 GameObject:
@@ -318,12 +318,13 @@ GameObject:
   - component: {fileID: 95458995444087342}
   - component: {fileID: 65155906711325202}
   - component: {fileID: 23556191822068432}
+  - component: {fileID: 208716883339359036}
   m_Layer: 0
   m_Name: Cream Car
   m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4027268044382760
 Transform:
@@ -540,7 +541,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1996530487038768}
   m_LocalRotation: {x: -0.00000018626451, y: 0.94277257, z: -0.0000003427267, w: -0.33343667}
-  m_LocalPosition: {x: -28.358, y: 8.5913, z: -61.32}
+  m_LocalPosition: {x: 22.179214, y: -12.371931, z: -7.212325}
   m_LocalScale: {x: 0.032341365, y: 0.032341372, z: 0.032341372}
   m_Children:
   - {fileID: 4114889332411150}
@@ -1139,8 +1140,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12.7775545, y: 6.4832125, z: 7.9353943}
-  m_Center: {x: 0.14568585, y: -0.11427255, z: -0.3925008}
+  m_Size: {x: 13.197969, y: 11.387314, z: 10.896589}
+  m_Center: {x: 0.35589328, y: -0.50057393, z: -0.4369845}
 --- !u!95 &95458995444087342
 Animator:
   serializedVersion: 3
@@ -1158,3 +1159,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!208 &208716883339359036
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1996530487038768}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 7.5, y: 7.5, z: 3.75}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

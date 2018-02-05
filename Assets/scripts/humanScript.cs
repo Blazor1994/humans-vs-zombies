@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class humanScript : MonoBehaviour {
-    public bool isParent = false;
-    float humanSpeedNormal = 5f;
+    //public bool isParent = false;
+   float humanSpeedNormal = 10f;
     int humanHealth = 10;
     NavMeshAgent agent;
-    public Transform target;
+    private Transform target;
     // Use this for initialization
 
     public RaycastHit hit;
@@ -46,17 +46,26 @@ public class humanScript : MonoBehaviour {
         Vector3 offset = new Vector3(0,0,1);
         float distance = Vector3.Distance (transform.position, FindClosestEnemy ().transform.position);
         if (Physics.Raycast (transform.position +  transform.up * 2.0f, fwd, out hit, 15) && hit.transform.tag == "gun") {
-           // Debug.Log ("I GOT YOU");
+           Debug.Log ("I GOT YOU");
             agent.SetDestination (hit.transform.position);
             //    agent.SetDestination (hit.transform.position -1);
         } else if (Physics.Raycast (transform.position + transform.up * 2.0f, fwd, out hit, 5) && hit.transform.tag == "Wall") {
             transform.position = Vector3.MoveTowards (transform.position, hit.transform.position, -1 * humanSpeedNormal * Time.deltaTime);
             //  agent.SetDestination (hit.transform.position -1);
+            Debug.Log("Wall fam");
         } else {
-            agent.SetDestination(target.position);
+            if(agent.destination.x!=target.position.x && agent.destination.z != target.position.z)
+            {
+                Debug.Log(agent.destination + " = " + target.position.z);
+                agent.SetDestination(new Vector3(target.position.x, 0, target.position.z));
+                Debug.Log("Setting destination fam");
+            }
+            
+            
         }
         if (Physics.Raycast(transform.position + transform.up * 2.0f, fwd, out hit))
         {
+            Debug.Log("Firing da gun faaaaaaaaaaaaaam");
             if (hit.transform.tag == "Zombie"){
                 Debug.Log("FIRE TWO");
                 if (gameObject.transform.name == "armed_guy_1"){
