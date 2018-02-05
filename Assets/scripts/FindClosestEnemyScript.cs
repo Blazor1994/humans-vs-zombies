@@ -22,7 +22,7 @@ public class FindClosestEnemyScript : MonoBehaviour {
         //Vector3 position = transform.position;
 
         foreach (GameObject enemy in closestEnemyArray) {
-            Debug.Log("Enemies in the closestEnemyArray:  " + enemy);
+            //Debug.Log("Enemies in the closestEnemyArray:  " + enemy);
             Vector3 difference = enemy.transform.position - position;
             float currentDistance = difference.sqrMagnitude;
 

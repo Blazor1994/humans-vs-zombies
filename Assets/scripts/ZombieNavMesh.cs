@@ -30,17 +30,17 @@ public class ZombieNavMesh : MonoBehaviour {
         NavMeshHit hit;
         // If this game object CAN see the target...
         if (!agent.Raycast(target.position, out hit)) {
-            Debug.Log("Target IS in sight.");
+            //Debug.Log("Target IS in sight.");
             agent.SetDestination(target.position);
             // If the target is further away than the chase distance...
             if (agent.remainingDistance > chaseDistance) {
                 // Stop the Zombie
                 agent.isStopped = true;
                 agent.ResetPath();
-                Debug.Log("Target is too far away. Distance: " + agent.remainingDistance);
+                //Debug.Log("Target is too far away. Distance: " + agent.remainingDistance);
             }
         } else {
-            Debug.Log("Target NOT in sight.");
+           //Debug.Log("Target NOT in sight.");
             // Stop the Zombie
             agent.isStopped = true;
             agent.ResetPath();

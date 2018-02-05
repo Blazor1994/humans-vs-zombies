@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23709945206150538}
   m_Layer: 0
   m_Name: Map
-  m_TagString: Untagged
+  m_TagString: map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1730798237164854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 141.74779, y: 194.92712, z: -56.53361}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -90,23 +90,25 @@ MonoBehaviour:
     type: 2}
   human: {fileID: 1313771633983520, guid: 3ede3e5cb7a03e64fa77e9d879eff1c5, type: 2}
   zombie: {fileID: 1406874989076682, guid: b2d7a41165e0e4640ae0357e9c5cfbff, type: 2}
+  rover: {fileID: 1408381471666892, guid: d8ec8b9e383152042a086fc61f3f67bb, type: 2}
   destination: {fileID: 1062611732011236, guid: 6f493bd2ce885dd42bdb7dfb4ba6e9df,
     type: 2}
-  cellCount: 100
+  cellCount: 1000
   humanCount: 1
-  zombieCount: 10
-  roadObjectsLimit: 10
-  houseOne: {fileID: 1549070312079362, guid: c1e026f71d64c154bac6eca41b1f141d, type: 2}
-  houseTwo: {fileID: 1549070312079362, guid: c1e026f71d64c154bac6eca41b1f141d, type: 2}
-  houseThree: {fileID: 1549070312079362, guid: c1e026f71d64c154bac6eca41b1f141d, type: 2}
-  grassObjectsLimit: 30
+  zombieCount: 1
+  grassWidth: 5
+  roadObjectsLimit: 500
+  carOne: {fileID: 1977031434669618, guid: c6583f55585ae194b93fc47116508162, type: 2}
+  carTwo: {fileID: 1996530487038768, guid: 3798b66be4b55dd46bb2838a2e6848d8, type: 2}
+  carThree: {fileID: 1130126194028852, guid: 994eb962102f4a1418941e60c2c6ba95, type: 2}
+  grassObjectsLimit: 1000
   treeOne: {fileID: 1899051944164910, guid: cf485aefc956689408ce329ed44f10a8, type: 2}
-  treeTwo: {fileID: 1789288306788052, guid: 71ad75cf9fb84444c9959fe2b0937202, type: 2}
+  treeTwo: {fileID: 1895055772015970, guid: d2fe6451d4f716040900502071236d70, type: 2}
   treeThree: {fileID: 1789288306788052, guid: 71ad75cf9fb84444c9959fe2b0937202, type: 2}
   navMeshLayers:
     serializedVersion: 2
     m_Bits: 4294967295
   genarationsStepDelay: 0
   size:
-    x: 1000
-    z: 1000
+    x: 10000
+    z: 10000

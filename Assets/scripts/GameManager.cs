@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 
 	private Map mapInstance;
 	private void Start () {
-		BeginGame();
+		//BeginGame();
 	}
 	
 	private void Update () {
@@ -19,16 +19,17 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	private void BeginGame () {
+	public void BeginGame (float cells, float cars, float humans, float zombies) {
 		mapInstance = Instantiate(mapPrefab) as Map;
 		//StartCoroutine(mapInstance.generate());
-		mapInstance.generate();
+		mapInstance.generate(cells, cars, humans, zombies);
 	}
 
 	private void RestartGame () {
 
-		StopAllCoroutines();
+		//StopAllCoroutines();
+		mapInstance.removeNavMesh();
 		Destroy(mapInstance.gameObject);
-		BeginGame();
+		//BeginGame();
 	}
 }

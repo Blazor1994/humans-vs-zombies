@@ -18,6 +18,8 @@ public class Map : MonoBehaviour {
 
 	public GameObject zombie;
 
+	public GameObject rover;
+
 	public GameObject destination;
 
 	public int cellCount;
@@ -28,14 +30,16 @@ public class Map : MonoBehaviour {
 	List<MapCell> activeCells = new List<MapCell>();
 	List<MapCell> activeCellsTemp = new List<MapCell>();
 	List<MapCell> grassCells = new List<MapCell>();
+
+	public int grassWidth;
 	List<MapCell> grassCellsTemp = new List<MapCell>();
 
 	public int roadObjectsLimit;
 	List<GameObject> roadObjects = new List<GameObject>();
 
-	public GameObject houseOne;
-	public GameObject houseTwo;
-	public GameObject houseThree;
+	public GameObject carOne;
+	public GameObject carTwo;
+	public GameObject carThree;
 
 	public int grassObjectsLimit;
 	List<GameObject> grassObjects = new List<GameObject>();
@@ -89,7 +93,8 @@ public class Map : MonoBehaviour {
 
 
 
-		//roadObjects.Add(houseOne);
+		//roadObjects.Add(carOne);
+		
 
 		
 	}
@@ -107,22 +112,27 @@ public class Map : MonoBehaviour {
 		east = MapDirection.East.ToIntVector2();
 		west = MapDirection.West.ToIntVector2();
 
-		roadObjects.Add(houseOne);
-		roadObjects.Add(houseTwo);
-		roadObjects.Add(houseThree);
+		roadObjects.Add(carOne);
+		roadObjects.Add(carTwo);
+		roadObjects.Add(carThree);
 		grassObjects.Add(treeOne);
 		grassObjects.Add(treeTwo);
 		grassObjects.Add(treeThree);
 	}
 
-	public void generate() {
+	public void generate(float cellCount, float cars, float humans, float zombies) {
+		
+		this.cellCount = (int)cellCount;
+		roadObjectsLimit = (int) cars;
+		humanCount = (int) humans;
+		zombieCount = (int) zombies;
 		
 		fillObjectArrays();
 		WaitForSeconds delay = new WaitForSeconds(genarationsStepDelay);
 		cells = new MapCell[size.x, size.z];
 		
-		IntVector2 now = RandomCoordinates;
-		//IntVector2 now = new IntVector2(100,100);
+		//IntVector2 now = RandomCoordinates;
+		IntVector2 now = new IntVector2(size.x/2, size.z/2);
 		int i = 0;
 		while (i < cellCount) {
 			if (cells[now.x, now.z] == null) { createCell(now); ++i; }
@@ -134,18 +144,22 @@ public class Map : MonoBehaviour {
 
 		generateObjects("road");
 		generateNavMesh();
-		generateGrass();
+		createPrefab("destination", finalCoordinates);
+		
+		//deployRover();
 		generateCharacters();
-		generateObjects("grass");
+		
 
 		
 		Debug.Log("Map Built");
 	}
 
 
-	private void generateCharacters()
+	public void generateCharacters()
 	{
-		createPrefab("destination", finalCoordinates);
+		
+		refreshNavMesh();
+		generateGrass();
 
 		for(var i=0; i<humanCount;i++)
 		{
@@ -167,6 +181,7 @@ public class Map : MonoBehaviour {
 		zombieObjects.GetComponent<RandomWalk>().enabled = true;
 		zombieObjects.GetComponent<zombieScript>().enabled = true;
 
+		generateObjects("grass");
 	}
 	private void generateObjects(string type)
 	{
@@ -197,7 +212,7 @@ public class Map : MonoBehaviour {
 		List<MapCell> listType = activeCells;
 
 		//MapDirection north = MapDirections.ToIntVector2(North);
-		for(var i = 0; i<5; i++)
+		for(var i = 0; i<grassWidth; i++)
 		{
 			//Debug.Log(listType.Count);
 			foreach(MapCell currentCell in listType)
@@ -283,15 +298,19 @@ public class Map : MonoBehaviour {
 		{
 			int randomIndex = Mathf.RoundToInt(Random.Range(0.0f, activeCells.Count-1));
 			int randomIndexObject = Mathf.RoundToInt(Random.Range(0.0f, roadObjects.Count-1));
+
 			coordinates = activeCells[randomIndex].coordinates;
+
 			if(cells[coordinates.x, coordinates.z]!=null)
 			{
 				prefab = Instantiate(roadObjects[randomIndexObject]);
-				height = 0.35f;
+				height = 0.12f;
 				cells[coords.x, coords.z] = null;
-			}
+				activeCells.RemoveAt(randomIndex);
 
+			}
 			
+	
 		}
 		else if(type.Equals("grassObject"))
 		{
@@ -327,9 +346,12 @@ public class Map : MonoBehaviour {
 			cell.coordinates = coords;
 			cell.name = "Grass Cell " + coords.x + ", " + coords.z;
 			height = 0.0f;
-			
-			
-			
+		}
+		else if(type.Equals("rover"))
+		{
+			coordinates = coords;
+			prefab = Instantiate(rover);
+			height = 0.0f;
 		}
 		if(cell==null)
 		{
@@ -342,10 +364,26 @@ public class Map : MonoBehaviour {
 			cell.transform.localPosition = new Vector3(coordinates.x-size.x * 0.5f + 0.5f, height, coordinates.z - size.z * 0.5f+0.5f);
 		}
 
+	}
 
+	private void deployRover()
+	{
+		createPrefab("rover", initalCoordinates);
+		GameObject roverObject = GameObject.FindGameObjectWithTag("rover");
+		roverObject.GetComponent<NavMeshAgent>().enabled = true;
+		roverObject.GetComponent<roverScript>().enabled = true;
+		roverObject.GetComponent<NavMeshAgentScript>().enabled = true;
+	}
+
+	public void refreshNavMesh()
+	{
+		//navMeshDataInstance.Remove();
+		generateNavMesh();
 	}
 	public void generateNavMesh()
 	{
+		removeNavMesh();
+		
 		//https://community.gamedev.tv/t/modify-navmesh-dynamically/25849/3
 		List<NavMeshBuildSource> buildSources  = new List<NavMeshBuildSource>();
 		NavMeshBuilder.CollectSources(transform, navMeshLayers, NavMeshCollectGeometry.RenderMeshes, 0, new List<NavMeshBuildMarkup>(), buildSources);
@@ -354,8 +392,10 @@ public class Map : MonoBehaviour {
                                 Quaternion.Euler(Vector3.up));
 
 		navMeshDataInstance = NavMesh.AddNavMeshData(navData);
-		
-		//Debug.Log(buildSources.Count);
+	}
 
+	public void removeNavMesh()
+	{
+		navMeshDataInstance.Remove();
 	}
 }
