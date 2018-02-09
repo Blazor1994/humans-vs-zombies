@@ -291,7 +291,7 @@ public class Map : MonoBehaviour {
 		{
 			coordinates = coords;
 			prefab = Instantiate(destination);
-			height = 0.25f;
+			height = 0.3f;
 			cells[coords.x, coords.z] = null;
 		}
 		else if(type.Equals("roadObject"))

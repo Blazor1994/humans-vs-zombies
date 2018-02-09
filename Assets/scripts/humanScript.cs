@@ -53,16 +53,19 @@ public class humanScript : MonoBehaviour {
             transform.position = Vector3.MoveTowards (transform.position, hit.transform.position, -1 * humanSpeedNormal * Time.deltaTime);
             //  agent.SetDestination (hit.transform.position -1);
             Debug.Log("Wall fam");
-        } else {
-            if(agent.destination.x!=target.position.x && agent.destination.z != target.position.z)
+        } else if(agent.destination.x!=target.position.x && agent.destination.y != target.position.y && agent.destination.z != target.position.z)
             {
                 Debug.Log(agent.destination + " = " + target.position.z);
-                agent.SetDestination(new Vector3(target.position.x, 0, target.position.z));
+                agent.SetDestination(new Vector3(target.position.x, target.position.y, target.position.z));
+                if(agent.destination.x!=target.position.x && agent.destination.y != target.position.y && agent.destination.z != target.position.z)
+            {
+                 agent.SetDestination(new Vector3(target.position.x, target.position.y, target.position.z));
+            }
                 Debug.Log("Setting destination fam");
             }
             
             
-        }
+        
         if (Physics.Raycast(transform.position + transform.up * 2.0f, fwd, out hit))
         {
             Debug.Log("Firing da gun faaaaaaaaaaaaaam");
