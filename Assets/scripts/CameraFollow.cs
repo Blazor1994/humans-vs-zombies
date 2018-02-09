@@ -1,4 +1,4 @@
-﻿
+
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
@@ -24,9 +24,11 @@ GameObject FindClosestEnemy() {
 		return closest;
     }
 void LateUpdate(){
-
+transform.position = FindClosestEnemy().transform.position + offset;
+            transform.LookAt(target);
     if(target == null){
         	transform.position = FindClosestEnemy().transform.position + offset;
+            transform.LookAt(target);
  
     }
 	
