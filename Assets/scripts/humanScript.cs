@@ -57,10 +57,19 @@ public class humanScript : MonoBehaviour {
             {
                 agent.SetDestination(new Vector3(target.position.x, target.position.y, target.position.z));
                 if(agent.destination.x!=target.position.x && agent.destination.y != target.position.y && agent.destination.z != target.position.z)
-                {
-                    agent.SetDestination(new Vector3(target.position.x, target.position.y, target.position.z));
-                }
+            {
+                 agent.SetDestination(new Vector3(target.position.x, target.position.y, target.position.z));
             }
+                Debug.Log("Setting destination fam");
+
+            } else if (Physics.Raycast(transform.position + transform.up * 2.0f, fwd, out hit))
+        {
+             if (hit.transform.tag == "Zombie"){
+                Debug.Log("Zombie fam, leg it bruv");
+                agent.SetDestination (hit.transform.InverseTransformDirection(Vector3.forward));
+        }
+        }
+
             
             
         

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4802626535705394}
   - component: {fileID: 95780355794033152}
   - component: {fileID: 65533937291733682}
+  - component: {fileID: 114823020083667800}
   m_Layer: 0
   m_Name: Shop
   m_TagString: Finish
@@ -1009,3 +1010,14 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114823020083667800
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1062611732011236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bfdd5f9c1b0b547a6ed0820e5e7f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
