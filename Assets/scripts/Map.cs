@@ -41,7 +41,7 @@ public class Map : MonoBehaviour {
 	public GameObject carTwo;
 	public GameObject carThree;
 
-	public int grassObjectsLimit;
+	private int grassObjectsLimit;
 	List<GameObject> grassObjects = new List<GameObject>();
 
 	public GameObject treeOne;
@@ -123,6 +123,7 @@ public class Map : MonoBehaviour {
 	public void generate(float cellCount, float cars, float humans, float zombies) {
 		
 		this.cellCount = (int)cellCount;
+		grassObjectsLimit = (int)cellCount*3;
 		roadObjectsLimit = (int) cars;
 		humanCount = (int) humans;
 		zombieCount = (int) zombies;
@@ -171,15 +172,24 @@ public class Map : MonoBehaviour {
 			createPrefab("zombie", finalCoordinates);
 		}
 
-		GameObject humanObjects = GameObject.FindWithTag("Human");
-		humanObjects.GetComponent<NavMeshAgent>().enabled = true;
-		humanObjects.GetComponent<humanScript>().enabled = true;
+		GameObject[] humanObjects = GameObject.FindGameObjectsWithTag("Human");
+		foreach(GameObject h in humanObjects)
+		{
+			h.GetComponent<NavMeshAgent>().enabled = true;
+			h.GetComponent<humanScript>().enabled = true;
+		}
 
-		GameObject zombieObjects = GameObject.FindWithTag("Zombie");
-		zombieObjects.GetComponent<NavMeshAgent>().enabled = true;
-		zombieObjects.GetComponent<ZombieNavMesh>().enabled = true;
-		zombieObjects.GetComponent<RandomWalk>().enabled = true;
-		zombieObjects.GetComponent<zombieScript>().enabled = true;
+
+
+		GameObject[] zombieObjects = GameObject.FindGameObjectsWithTag("Zombie");
+		foreach(GameObject z in zombieObjects)
+		{
+			z.GetComponent<NavMeshAgent>().enabled = true;
+			z.GetComponent<ZombieNavMesh>().enabled = true;
+			z.GetComponent<RandomWalk>().enabled = true;
+			z.GetComponent<zombieScript>().enabled = true;
+		}
+
 
 		generateObjects("grass");
 	}

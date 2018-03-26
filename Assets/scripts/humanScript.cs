@@ -52,10 +52,9 @@ public class humanScript : MonoBehaviour {
         } else if (Physics.Raycast (transform.position + transform.up * 2.0f, fwd, out hit, 5) && hit.transform.tag == "Wall") {
             transform.position = Vector3.MoveTowards (transform.position, hit.transform.position, -1 * humanSpeedNormal * Time.deltaTime);
             //  agent.SetDestination (hit.transform.position -1);
-            Debug.Log("Wall fam");
+            
         } else if(agent.destination.x!=target.position.x && agent.destination.y != target.position.y && agent.destination.z != target.position.z)
             {
-                Debug.Log(agent.destination + " = " + target.position.z);
                 agent.SetDestination(new Vector3(target.position.x, target.position.y, target.position.z));
                 if(agent.destination.x!=target.position.x && agent.destination.y != target.position.y && agent.destination.z != target.position.z)
             {
@@ -76,7 +75,6 @@ public class humanScript : MonoBehaviour {
         
         if (Physics.Raycast(transform.position + transform.up * 2.0f, fwd, out hit))
         {
-            Debug.Log("Firing da gun faaaaaaaaaaaaaam");
             if (hit.transform.tag == "Zombie"){
                 Debug.Log("FIRE TWO");
                 if (gameObject.transform.name == "armed_guy_1"){
