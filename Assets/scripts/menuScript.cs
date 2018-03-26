@@ -60,7 +60,6 @@ public class menuScript : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
-		//cellSlider = GameObject.FindGameObjectWithTag("cellSlider");
 	}
 	
 	// Update is called once per frame

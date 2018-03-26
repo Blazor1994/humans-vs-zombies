@@ -18,6 +18,7 @@ TagManager:
   - rover
   - Undefined
   - gunpickup
+  - menuCam
   layers:
   - Default
   - TransparentFX

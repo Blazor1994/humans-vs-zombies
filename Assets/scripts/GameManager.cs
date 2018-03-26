@@ -9,27 +9,33 @@ public class GameManager : MonoBehaviour {
 	public Map mapPrefab;
 
 	private Map mapInstance;
+
+	public Camera menuCam;
+	public Camera followCam;
 	private void Start () {
 		//BeginGame();
 	}
 	
 	private void Update () {
-		if (Input.GetKeyDown(KeyCode.Space)) {
-			RestartGame();
+		if (Input.GetKeyDown(KeyCode.Escape)) {
+			StopGame();
 		}
 	}
 
 	public void BeginGame (float cells, float cars, float humans, float zombies) {
 		mapInstance = Instantiate(mapPrefab) as Map;
 		//StartCoroutine(mapInstance.generate());
+		menuCam.enabled = false;
 		mapInstance.generate(cells, cars, humans, zombies);
+		followCam.enabled = true;
 	}
 
-	private void RestartGame () {
+	private void StopGame () {
 
 		//StopAllCoroutines();
 		mapInstance.removeNavMesh();
 		Destroy(mapInstance.gameObject);
-		//BeginGame();
+		menuCam.enabled = true;
+		followCam.enabled = false;
 	}
 }

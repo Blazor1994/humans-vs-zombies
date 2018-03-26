@@ -28,7 +28,7 @@ void LateUpdate(){
             
     if(target == null){
         	transform.position = FindClosestEnemy().transform.position + offset;
-             transform.LookAt(target.transform);
+            transform.LookAt(target.transform);
     }
    
 	
