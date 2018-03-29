@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour {
 
 	public Camera menuCam;
 	public Camera followCam;
+
+	public Canvas cameraOverlay;
 	private void Start () {
 		//BeginGame();
 	}
@@ -26,6 +28,7 @@ public class GameManager : MonoBehaviour {
 		mapInstance = Instantiate(mapPrefab) as Map;
 		//StartCoroutine(mapInstance.generate());
 		menuCam.enabled = false;
+		cameraOverlay.targetDisplay = 0;
 		mapInstance.generate(cells, cars, humans, zombies);
 		followCam.enabled = true;
 	}
@@ -37,5 +40,6 @@ public class GameManager : MonoBehaviour {
 		Destroy(mapInstance.gameObject);
 		menuCam.enabled = true;
 		followCam.enabled = false;
+		cameraOverlay.targetDisplay = 3;
 	}
 }

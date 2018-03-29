@@ -9,7 +9,6 @@ TagManager:
   - Car
   - Wall
   - gun
-  - fuckoff
   - bullet
   - bulletfire
   - zombie
@@ -19,6 +18,7 @@ TagManager:
   - Undefined
   - gunpickup
   - menuCam
+  - dmgBullet
   layers:
   - Default
   - TransparentFX

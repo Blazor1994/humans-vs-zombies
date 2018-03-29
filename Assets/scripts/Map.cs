@@ -7,6 +7,8 @@ using UnityEngine.AI;
 
 public class Map : MonoBehaviour {
 
+
+
 	IntVector2 north;
 	IntVector2 south;
 	IntVector2 east;
@@ -41,6 +43,8 @@ public class Map : MonoBehaviour {
 	public GameObject carTwo;
 	public GameObject carThree;
 
+	public GameObject pickup;
+	private int pickupsLimit;
 	private int grassObjectsLimit;
 	List<GameObject> grassObjects = new List<GameObject>();
 
@@ -124,6 +128,7 @@ public class Map : MonoBehaviour {
 		
 		this.cellCount = (int)cellCount;
 		grassObjectsLimit = (int)cellCount*3;
+		pickupsLimit = (int)cellCount/4;
 		roadObjectsLimit = (int) cars;
 		humanCount = (int) humans;
 		zombieCount = (int) zombies;
@@ -144,6 +149,7 @@ public class Map : MonoBehaviour {
 
 
 		generateObjects("road");
+		generateObjects("pickups");
 		generateNavMesh();
 		createPrefab("destination", finalCoordinates);
 		
@@ -197,11 +203,19 @@ public class Map : MonoBehaviour {
 	{
 		if(type.Equals("road"))
 		{
+			createPrefab("pickupObject", RandomCoordinates);
 			for(int i = 0; i<roadObjectsLimit; i++)
 			{
 				createPrefab("roadObject", RandomCoordinates);
 			}
 		}
+		else if(type.Equals("pickups"))
+		{
+			for(int i = 0; i<pickupsLimit; i++)
+			{
+				createPrefab("pickupObject", RandomCoordinates);
+			}
+		}		
 		else if(type.Equals("grass"))
 		{
 			for(int i = 0; i<grassObjectsLimit; i++)
@@ -295,7 +309,7 @@ public class Map : MonoBehaviour {
 		{
 			coordinates = coords;
 			prefab = Instantiate(human);
-			height = 0.0f;
+			height = 0.2f;
 		}
 		else if(type.Equals("destination"))
 		{
@@ -303,6 +317,22 @@ public class Map : MonoBehaviour {
 			prefab = Instantiate(destination);
 			height = 0.3f;
 			cells[coords.x, coords.z] = null;
+		}
+		else if(type.Equals("pickupObject"))
+		{
+			int randomIndex = Mathf.RoundToInt(Random.Range(0.0f, activeCells.Count-1));
+			int randomIndexObject = Mathf.RoundToInt(Random.Range(0.0f, roadObjects.Count-1));
+
+			coordinates = activeCells[randomIndex].coordinates;
+
+			if(cells[coordinates.x, coordinates.z]!=null)
+			{
+				prefab = Instantiate(pickup);
+				height = 0.05f;
+				cells[coords.x, coords.z] = null;
+				activeCells.RemoveAt(randomIndex);
+
+			}
 		}
 		else if(type.Equals("roadObject"))
 		{
@@ -314,7 +344,7 @@ public class Map : MonoBehaviour {
 			if(cells[coordinates.x, coordinates.z]!=null)
 			{
 				prefab = Instantiate(roadObjects[randomIndexObject]);
-				height = 0.12f;
+				height = 0.05f;
 				cells[coords.x, coords.z] = null;
 				activeCells.RemoveAt(randomIndex);
 
@@ -344,7 +374,7 @@ public class Map : MonoBehaviour {
 			int randomIndex = Mathf.RoundToInt(Random.Range(0.0f, activeCells.Count-1));
 			coordinates = activeCells[randomIndex].coordinates;
 			prefab = Instantiate(zombie);
-			height = 0.0f;
+			height = 0.2f;
 			
 		}
 		else if(type.Equals("grass"))

@@ -19,9 +19,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4772338360926886}
+  - component: {fileID: 65161124066908154}
+  - component: {fileID: 114815832173690352}
   m_Layer: 0
   m_Name: gun
-  m_TagString: Untagged
+  m_TagString: gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,8 +95,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1475125406362430}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.7125726, y: -1.58, z: -3.1678772}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -14.948744, y: -13.995508, z: -25.637932}
+  m_LocalScale: {x: 0.018906401, y: 0.018906401, z: 0.018906401}
   m_Children:
   - {fileID: 4670763488326400}
   - {fileID: 4546238056234730}
@@ -179,3 +181,26 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1826667113588388}
   m_Mesh: {fileID: 4300002, guid: 8eff7ab9d6f195544942b91f34313d1d, type: 3}
+--- !u!65 &65161124066908154
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1475125406362430}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.308826, y: 53.345764, z: 8.845809}
+  m_Center: {x: 0.13558777, y: 25.778648, z: -0.48747027}
+--- !u!114 &114815832173690352
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1475125406362430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d4c4f18b8e03e4ba28371b9464149a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

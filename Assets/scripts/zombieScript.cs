@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 // TODO: Change this from 'zombieScript' to 'ZombieScript'.
 public class zombieScript : MonoBehaviour {
-
+    int zombieHealth = 7;
     ZombieNavMesh zombieNav;
     FindClosestEnemyScript findClosest;
     RandomWalk randomWalk;
@@ -17,6 +17,7 @@ public class zombieScript : MonoBehaviour {
         zombieNav = GetComponent<ZombieNavMesh>();
         findClosest = GetComponent<FindClosestEnemyScript>();
         randomWalk = GetComponent<RandomWalk>();
+        zombieNav.agent.Warp(gameObject.transform.position);
 
     }
     // Update is called once per frame
@@ -24,8 +25,11 @@ public class zombieScript : MonoBehaviour {
         // Get the closest enemy, passing the method our current position.
         closestEnemy = findClosest.FindClosestEnemy(transform.position, enemyTag);
         // Navigate towards the closest enemy, passing the location of the enemy.
-        // NOTE: When the current target is removed, a NullReferenceException is thrown.
-        zombieNav.NavigateTowardsHuman(closestEnemy.transform);
+        if(closestEnemy)
+        {
+            zombieNav.NavigateTowardsHuman(closestEnemy.transform);
+        }
+        
 
         // If the Zombie is stopped...
         if(zombieNav.agent.isStopped == true) {
@@ -44,5 +48,16 @@ public class zombieScript : MonoBehaviour {
           //  Debug.Log("Hit a Wall");
         }
         //Debug.Log("Collided!");
+         if (collision.gameObject.tag == "dmgBullet")
+        {
+            zombieHealth--;
+            Debug.Log("Zombie got hurt, takes 1 HP damage. Current HP: " + zombieHealth);
+      
+           
+                if (zombieHealth == 0){
+                     Destroy(gameObject);
+                }
+    }
     }
 }
+

@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1730798237164854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.8518114, y: -7.146098, z: 4.903524}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,7 +101,8 @@ MonoBehaviour:
   carOne: {fileID: 1130126194028852, guid: 994eb962102f4a1418941e60c2c6ba95, type: 2}
   carTwo: {fileID: 1977031434669618, guid: c6583f55585ae194b93fc47116508162, type: 2}
   carThree: {fileID: 1996530487038768, guid: 3798b66be4b55dd46bb2838a2e6848d8, type: 2}
-  grassObjectsLimit: 30
+  pickup: {fileID: 1475125406362430, guid: 978908ce474af864f8aa4257a740c299, type: 2}
+  pickupsLimit: 10
   treeOne: {fileID: 1899051944164910, guid: cf485aefc956689408ce329ed44f10a8, type: 2}
   treeTwo: {fileID: 1895055772015970, guid: d2fe6451d4f716040900502071236d70, type: 2}
   treeThree: {fileID: 1789288306788052, guid: 71ad75cf9fb84444c9959fe2b0937202, type: 2}
